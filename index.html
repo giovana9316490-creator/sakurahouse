@@ -9,91 +9,103 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- Camadas de fundo -->
   <div class="fundo-espelho" id="espelho"></div>
   <canvas id="petalas"></canvas>
 
-  <!-- Menu -->
   <header class="topo">
-    <a href="#inicio" class="logo">桜 <span>Sakura House</span></a>
+    <a href="index.html" class="logo">桜 <span>Sakura House</span></a>
     <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#cardapio">Cardápio</a>
-      <a href="#reservas">Reservas</a>
-      <a href="#contato">Contato</a>
+      <a href="index.html" class="ativo">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="historia.html">História</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="contato.html">Contato</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- Início -->
-    <section id="inicio" class="hero">
+    <section class="hero">
       <p class="kanji">桜の家</p>
       <h1>Sakura House</h1>
       <p class="frase">Sabores do Japão sob a sombra das cerejeiras</p>
-      <a href="#reservas" class="botao">Reservar mesa</a>
-    </section>
-
-    <!-- Sobre -->
-    <section id="sobre" class="secao vidro">
-      <h2>Nossa essência</h2>
-      <p>
-        No Sakura House, cada prato é preparado com ingredientes frescos e
-        técnica tradicional. Um ambiente sofisticado, inspirado na delicadeza
-        das cerejeiras em flor, para tornar cada visita uma experiência única.
-      </p>
-    </section>
-
-    <!-- Cardápio (carregado do Supabase) -->
-    <section id="cardapio" class="secao">
-      <h2>Cardápio</h2>
-      <div id="filtros" class="filtros"></div>
-      <div id="lista-cardapio" class="grade">
-        <p class="carregando">Carregando cardápio...</p>
+      <div class="botoes">
+        <a href="cardapio.html" class="botao">Ver cardápio</a>
+        <a href="reservas.html" class="botao">Reservar mesa</a>
       </div>
     </section>
 
-    <!-- Reservas (salvas no Supabase) -->
-    <section id="reservas" class="secao vidro">
-      <h2>Reserve sua mesa</h2>
-      <form id="form-reserva" class="formulario">
-        <input type="text" name="nome" placeholder="Seu nome" required />
-        <input type="tel" name="telefone" placeholder="Telefone (WhatsApp)" required />
-        <input type="date" name="data" required />
-        <select name="horario" required>
-          <option value="">Horário</option>
-          <option>18:00</option>
-          <option>19:00</option>
-          <option>20:00</option>
-          <option>21:00</option>
-        </select>
-        <input type="number" name="pessoas" min="1" max="20" placeholder="Nº de pessoas" required />
-        <button type="submit" class="botao">Confirmar reserva</button>
-        <p id="msg-reserva" class="mensagem"></p>
-      </form>
+    <section class="secao vidro">
+      <h2>Uma experiência em flor</h2>
+      <div class="texto">
+        <p>
+          No Sakura House, cada prato nasce de ingredientes frescos, técnica
+          tradicional e muito cuidado. Nosso salão foi pensado como um jardim
+          de cerejeiras: luz suave, reflexos delicados e um ambiente feito
+          para desacelerar.
+        </p>
+        <p>
+          Venha viver o ritual japonês de comer com calma, apreciar cada
+          detalhe e celebrar bons momentos à mesa.
+        </p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="numeros">
+        <div class="numero vidro" style="padding: 26px 10px;">
+          <strong>14</strong><span>anos de história</span>
+        </div>
+        <div class="numero vidro" style="padding: 26px 10px;">
+          <strong>+40</strong><span>pratos no cardápio</span>
+        </div>
+        <div class="numero vidro" style="padding: 26px 10px;">
+          <strong>100%</strong><span>ingredientes frescos</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <h2>Explore o Sakura House</h2>
+      <div class="grade">
+        <a href="historia.html" class="card">
+          <span class="categoria">Nossa trajetória</span>
+          <h3>História</h3>
+          <p>Como uma receita de família virou o Sakura House.</p>
+        </a>
+        <a href="cardapio.html" class="card">
+          <span class="categoria">Sabores</span>
+          <h3>Cardápio</h3>
+          <p>Sashimis, rolls, temakis, pratos quentes e sobremesas.</p>
+        </a>
+        <a href="reservas.html" class="card">
+          <span class="categoria">Mesa garantida</span>
+          <h3>Reservas</h3>
+          <p>Escolha o dia e o horário e receba confirmação.</p>
+        </a>
+        <a href="contato.html" class="card">
+          <span class="categoria">Fale conosco</span>
+          <h3>Contato</h3>
+          <p>Endereço, horários e formas de falar com a gente.</p>
+        </a>
+      </div>
     </section>
 
   </main>
 
-  <!-- Rodapé -->
-  <footer id="contato" class="rodape">
+  <footer class="rodape">
     <p class="logo">桜 Sakura House</p>
     <p>Aberto de terça a domingo, das 18h às 23h</p>
-    <p>contato@sakurahouse.com</p>
+    <p><a href="contato.html">Fale conosco</a></p>
     <small>© 2026 Sakura House. Todos os direitos reservados.</small>
   </footer>
 
-  <!-- Supabase + scripts do site -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/config.js"></script>
   <script src="js/espelho.js"></script>
   <script src="js/petalas.js"></script>
-  <script src="js/cardapio.js"></script>
-  <script src="js/reservas.js"></script>
 </body>
 </html>
