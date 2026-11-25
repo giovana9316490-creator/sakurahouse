@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato | Sakura House</title>
+  <meta name="description" content="Endereço, horários e contato do Sakura House." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="fundo-espelho" id="espelho"></div>
+  <canvas id="petalas"></canvas>
+
+  <header class="topo">
+    <a href="index.html" class="logo">桜 <span>Sakura House</span></a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="historia.html">História</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="contato.html" class="ativo">Contato</a>
+    </nav>
+  </header>
+
+  <main class="pagina">
+
+    <div class="cabecalho-pagina">
+      <p class="kanji">お問い合わせ</p>
+      <h1>Contato</h1>
+      <p>Será um prazer receber você</p>
+    </div>
+
+    <section class="secao info-contato">
+      <div class="grade">
+        <article class="card">
+          <span class="categoria">Onde estamos</span>
+          <h3>Endereço</h3>
+          <p>Rua das Cerejeiras, 123<br />Centro, sua cidade</p>
+        </article>
+        <article class="card">
+          <span class="categoria">Funcionamento</span>
+          <h3>Horários</h3>
+          <p>Terça a domingo<br />das 18h às 23h<br />Segunda: fechado</p>
+        </article>
+        <article class="card">
+          <span class="categoria">Fale conosco</span>
+          <h3>Telefone</h3>
+          <p>(00) 00000-0000<br />WhatsApp no mesmo número</p>
+        </article>
+        <article class="card">
+          <span class="categoria">Escreva para nós</span>
+          <h3>E-mail</h3>
+          <p><a href="mailto:contato@sakurahouse.com">contato@sakurahouse.com</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="secao vidro">
+      <h2>Venha nos visitar</h2>
+      <p>Reserve sua mesa e garanta um momento especial sob as cerejeiras.</p>
+      <div class="botoes" style="margin-top: 22px;">
+        <a href="reservas.html" class="botao">Reservar mesa</a>
+        <a href="cardapio.html" class="botao">Ver cardápio</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p class="logo">桜 Sakura House</p>
+    <p>Aberto de terça a domingo, das 18h às 23h</p>
+    <p><a href="contato.html">Fale conosco</a></p>
+    <small>© 2026 Sakura House. Todos os direitos reservados.</small>
+  </footer>
+
+  <script src="js/espelho.js"></script>
+  <script src="js/petalas.js"></script>
+</body>
+</html>
