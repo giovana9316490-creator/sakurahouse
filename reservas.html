@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservas | Sakura House</title>
+  <meta name="description" content="Reserve sua mesa no Sakura House." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="fundo-espelho" id="espelho"></div>
+  <canvas id="petalas"></canvas>
+
+  <header class="topo">
+    <a href="index.html" class="logo">桜 <span>Sakura House</span></a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="historia.html">História</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="reservas.html" class="ativo">Reservas</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main class="pagina">
+
+    <div class="cabecalho-pagina">
+      <p class="kanji">ご予約</p>
+      <h1>Reservas</h1>
+      <p>Garanta sua mesa no Sakura House</p>
+    </div>
+
+    <section class="secao vidro">
+      <h2>Reserve sua mesa</h2>
+      <form id="form-reserva" class="formulario">
+        <input type="text" name="nome" placeholder="Seu nome" required />
+        <input type="tel" name="telefone" placeholder="Telefone (WhatsApp)" required />
+        <input type="date" name="data" required />
+        <select name="horario" required>
+          <option value="">Horário</option>
+          <option>18:00</option>
+          <option>19:00</option>
+          <option>20:00</option>
+          <option>21:00</option>
+        </select>
+        <input type="number" name="pessoas" min="1" max="20" placeholder="Nº de pessoas" required />
+        <button type="submit" class="botao">Confirmar reserva</button>
+        <p id="msg-reserva" class="mensagem"></p>
+      </form>
+    </section>
+
+    <section class="secao">
+      <h2>Bom saber</h2>
+      <div class="grade">
+        <article class="card">
+          <span class="categoria">Funcionamento</span>
+          <h3>Horários</h3>
+          <p>Terça a domingo, das 18h às 23h.</p>
+        </article>
+        <article class="card">
+          <span class="categoria">Confirmação</span>
+          <h3>Retorno</h3>
+          <p>Entraremos em contato pelo telefone informado para confirmar.</p>
+        </article>
+        <article class="card">
+          <span class="categoria">Grupos</span>
+          <h3>Mesas grandes</h3>
+          <p>Para mais de 10 pessoas, fale conosco pela página de contato.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p class="logo">桜 Sakura House</p>
+    <p>Aberto de terça a domingo, das 18h às 23h</p>
+    <p><a href="contato.html">Fale conosco</a></p>
+    <small>© 2026 Sakura House. Todos os direitos reservados.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/espelho.js"></script>
+  <script src="js/petalas.js"></script>
+  <script src="js/reservas.js"></script>
+</body>
+</html>
