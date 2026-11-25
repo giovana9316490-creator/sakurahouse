@@ -1,9 +1,8 @@
 (function () {
-  // Cliente do Supabase (compartilhado com o reservas.js)
-  window.db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
   const lista = document.getElementById("lista-cardapio");
   const filtros = document.getElementById("filtros");
+  if (!lista || !filtros) return;
+
   let pratos = [];
   let categoriaAtual = "Todos";
 
