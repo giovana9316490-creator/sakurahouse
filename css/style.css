@@ -1,1 +1,320 @@
+/* ============ Variáveis ============ */
+:root {
+  --fundo: #120a0e;
+  --rosa: #f4b6c2;
+  --rosa-forte: #e98aa0;
+  --dourado: #d9b77e;
+  --texto: #f6ecee;
+  --texto-suave: #cdb9bf;
+  --vidro: rgba(255, 255, 255, 0.06);
+  --borda: rgba(255, 255, 255, 0.14);
+  --mx: 50%;
+  --my: 50%;
+}
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ============ Fundo espelhado ============ */
+.fundo-espelho {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    /* reflexo de luz que segue o mouse */
+    radial-gradient(circle at var(--mx) var(--my),
+      rgba(244, 182, 194, 0.28) 0%,
+      rgba(244, 182, 194, 0.08) 25%,
+      transparent 50%),
+    /* brilho de espelho em diagonal */
+    linear-gradient(115deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.07) 42%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.05) 62%,
+      transparent 70%),
+    linear-gradient(160deg, #1d0f16 0%, #120a0e 55%, #0b0608 100%);
+  transition: background 0.15s ease-out;
+}
+
+/* painéis de espelho (efeito de vidro refletindo) */
+.fundo-espelho::before,
+.fundo-espelho::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  height: 120%;
+  width: 22%;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0.00),
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.00));
+  transform: skewX(-14deg) translateX(var(--deslocar, 0px));
+  transition: transform 0.2s ease-out;
+}
+.fundo-espelho::before { left: 12%; }
+.fundo-espelho::after  { left: 62%; width: 14%; }
+
+#petalas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ============ Topo ============ */
+.topo {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6vw;
+  background: rgba(18, 10, 14, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--borda);
+}
+
+.logo {
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.25rem;
+  color: var(--rosa);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.logo span { color: var(--texto); font-family: "Cormorant Garamond", serif; }
+
+.topo nav a {
+  color: var(--texto-suave);
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  transition: color 0.25s;
+}
+.topo nav a:hover { color: var(--rosa); }
+
+/* ============ Início ============ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 6vw;
+}
+
+.kanji {
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.3rem;
+  letter-spacing: 12px;
+  color: var(--dourado);
+  margin-bottom: 8px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 300;
+  letter-spacing: 6px;
+  background: linear-gradient(180deg, #ffffff 0%, var(--rosa) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 40px rgba(244, 182, 194, 0.25);
+}
+
+.frase {
+  margin: 14px 0 34px;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--texto-suave);
+}
+
+/* ============ Botão ============ */
+.botao {
+  display: inline-block;
+  padding: 13px 36px;
+  border: 1px solid var(--rosa);
+  border-radius: 40px;
+  background: rgba(244, 182, 194, 0.08);
+  color: var(--rosa);
+  font-family: inherit;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.botao:hover {
+  background: var(--rosa);
+  color: #2a1219;
+  box-shadow: 0 0 28px rgba(244, 182, 194, 0.45);
+}
+
+/* ============ Seções ============ */
+.secao {
+  max-width: 1100px;
+  margin: 90px auto;
+  padding: 50px 6vw;
+  text-align: center;
+}
+
+.secao h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--rosa);
+  margin-bottom: 26px;
+}
+.secao h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 1px;
+  margin: 14px auto 0;
+  background: var(--dourado);
+}
+
+.vidro {
+  background: var(--vidro);
+  border: 1px solid var(--borda);
+  border-radius: 22px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* ============ Cardápio ============ */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 34px;
+}
+.filtros button {
+  padding: 8px 20px;
+  border: 1px solid var(--borda);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--texto-suave);
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.filtros button:hover,
+.filtros button.ativo {
+  border-color: var(--rosa);
+  color: var(--rosa);
+  background: rgba(244, 182, 194, 0.1);
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  padding: 26px 22px;
+  text-align: left;
+  background: var(--vidro);
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.2s ease-out, border-color 0.3s, box-shadow 0.3s;
+  transform-style: preserve-3d;
+}
+.card:hover {
+  border-color: var(--rosa);
+  box-shadow: 0 16px 40px rgba(244, 182, 194, 0.18);
+}
+.card .categoria {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dourado);
+}
+.card h3 {
+  margin: 6px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.card p { color: var(--texto-suave); font-size: 1.05rem; }
+.card .preco {
+  display: block;
+  margin-top: 14px;
+  font-size: 1.35rem;
+  color: var(--rosa);
+}
+
+.carregando { color: var(--texto-suave); font-style: italic; }
+
+/* ============ Formulário ============ */
+.formulario {
+  max-width: 520px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+}
+.formulario input,
+.formulario select {
+  width: 100%;
+  padding: 13px 18px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 1.05rem;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.formulario input::placeholder { color: var(--texto-suave); }
+.formulario select option { background: #1d0f16; color: var(--texto); }
+.formulario input:focus,
+.formulario select:focus {
+  border-color: var(--rosa);
+  box-shadow: 0 0 0 3px rgba(244, 182, 194, 0.15);
+}
+.formulario input[type="date"] { color-scheme: dark; }
+
+.mensagem { min-height: 24px; font-size: 1.05rem; }
+.mensagem.ok   { color: #9fe3b4; }
+.mensagem.erro { color: #ff9aa8; }
+
+/* ============ Rodapé ============ */
+.rodape {
+  margin-top: 60px;
+  padding: 44px 6vw;
+  text-align: center;
+  color: var(--texto-suave);
+  background: rgba(10, 5, 8, 0.6);
+  border-top: 1px solid var(--borda);
+}
+.rodape .logo { display: block; margin-bottom: 8px; font-size: 1.5rem; }
+.rodape small { display: block; margin-top: 16px; opacity: 0.7; }
+
+/* ============ Celular ============ */
+@media (max-width: 700px) {
+  .topo { flex-direction: column; gap: 6px; padding: 10px 4vw; }
+  .topo nav a { margin: 0 10px; font-size: 0.95rem; }
+  .secao { margin: 50px 12px; padding: 36px 20px; }
+}
